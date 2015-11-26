@@ -9,7 +9,10 @@ zuul:
   routes:
     user:
       path: /user/**
-      url: http://indiadevres3.cloudapp.net:8080/auth/realms/Waygum/protocol/openid-connect/userinfo
+      url: http://keycloak.cloudapp.net:8080/auth/realms/Zuul/protocol/openid-connect/userinfo
+    mbaas-core:
+      path: /mbass-core/**
+      url: http://127.0.0.1:8080/
 
 spring:
   oauth2:
@@ -18,12 +21,12 @@ spring:
         secure: false
         path: /,/**/*.html
     client:
-      accessTokenUri: http://indiadevres3.cloudapp.net:8080/auth/realms/Waygum/protocol/openid-connect/token
-      userAuthorizationUri: http://indiadevres3.cloudapp.net:8080/auth/realms/Waygum/protocol/openid-connect/auth
+      accessTokenUri: http://keycloak.cloudapp.net:8080/auth/realms/Zuul/protocol/openid-connect/token
+      userAuthorizationUri: http://keycloak.cloudapp.net:8080/auth/realms/Zuul/protocol/openid-connect/auth
       clientId: grafana-test
       clientSecret: 64a4e328-56fa-4ee0-9283-014cda692293
     resource:
-      userInfoUri: http://indiadevres3.cloudapp.net:8080/auth/realms/Waygum/protocol/openid-connect/userinfo
+      userInfoUri: http://keycloak.cloudapp.net:8080/auth/realms/Zuul/protocol/openid-connect/userinfo
 
 
 logging:

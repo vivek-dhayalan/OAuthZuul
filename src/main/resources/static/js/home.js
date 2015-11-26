@@ -3,10 +3,10 @@ var springbox = angular.module('springbox');
 springbox.controller('home', function ($rootScope, $scope, $http) {
 
     $http.get('user').success(function (data) {
-        if (data.username) {
-            $http.get('recommendations/recommendations/forUser/' + data.username)
+        if (data.name) {
+            $http.get('mbaas-core/login')
                 .success(function (recs) {
-                    $scope.recommendations = recs;
+                    $("response").html(recs);
                 });
         }
     });

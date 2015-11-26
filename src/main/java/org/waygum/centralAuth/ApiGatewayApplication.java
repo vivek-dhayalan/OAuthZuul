@@ -48,8 +48,8 @@ public class ApiGatewayApplication {
         @Override
         public void configure(HttpSecurity http) throws Exception {
             http.logout().and().antMatcher("/**").authorizeRequests()
-                    .antMatchers("/index.html", "/home.html", "/", "/login", "/beans").permitAll()
-                    .antMatchers(HttpMethod.GET, "/recommendations/**","/reviews/**","/people/**","/movie/**","/catalog/**","/likes/**").permitAll()
+                    .antMatchers("/index.html", "/home.html", "/", "/login", "/beans", "/mbaas-core/**").permitAll()
+                    .antMatchers(HttpMethod.GET, "/test/**").permitAll()
                     .anyRequest().authenticated().and().csrf()
                     .csrfTokenRepository(csrfTokenRepository()).and()
                     .addFilterBefore(new RequestContextFilter(), HeaderWriterFilter.class)
